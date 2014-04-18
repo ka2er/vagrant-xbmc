@@ -1,0 +1,12 @@
+---
+- name: deploy XBMC
+  hosts: all
+  gather_facts: false
+
+  tasks:
+    
+    - name: updates apt definitions
+      apt: update_cache=yes
+      
+    - name: install xbmc package
+      apt: package=xbmc state=installed
