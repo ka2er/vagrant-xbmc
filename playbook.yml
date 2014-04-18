@@ -7,6 +7,12 @@
     
     - name: updates apt definitions
       apt: update_cache=yes
+
+    - name: install xserver package
+      apt: package=xserver-xorg state=installed      
+
+    - name: install xinit package (startx)
+      apt: package=xinit state=installed      
       
     - name: install xbmc package
       apt: package=xbmc state=installed

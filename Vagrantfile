@@ -45,13 +45,15 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # backing providers for Vagrant. These expose provider-specific options.
   # Example for VirtualBox:
   #
-  # config.vm.provider "virtualbox" do |vb|
-  #   # Don't boot with headless mode
-  #   vb.gui = true
-  #
-  #   # Use VBoxManage to customize the VM. For example to change memory:
-  #   vb.customize ["modifyvm", :id, "--memory", "1024"]
-  # end
+  config.vm.provider "virtualbox" do |vb|
+    # Don't boot with headless mode
+    vb.gui = true
+  
+    # Use VBoxManage to customize the VM. For example to change memory:
+    #  vb.customize ["modifyvm", :id, "--memory", "1024"]
+    vb.customize ["modifyvm", :id, "--accelerate2dvideo", "on"]
+    vb.customize ["modifyvm", :id, "--accelerate3d", "on"]
+  end
   #
   # View the documentation for the provider you're using for more
   # information on available options.
